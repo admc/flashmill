@@ -26,7 +26,7 @@ var flashmill = {
     this.initialized = true;
   },
   go: function() {
-    var mt = getWindowByTitle('flashmill Runner');
+    var mt = getWindowByTitle('Flashmill Runner');
     if (mt){
       mt.focus();
     }
