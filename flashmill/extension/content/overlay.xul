@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://flashmill/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://flashmill/locale/overlay.dtd">
+<overlay id="flashmill-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="chrome://flashmill/content/overlay.js"/>
+  
+  <keyset>
+    <key id="open-mt" modifiers="accel shift" key="y" oncommand="flashmill.go(event);"/>
+  </keyset>
+  
+  <menupopup id="menu_ToolsPopup">
+    <menuitem key="open-mt" id="flashmill-flashmill" label="&flashmill;" 
+              oncommand="flashmill.go(event);"/>
+  </menupopup>
+</overlay>
