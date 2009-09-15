@@ -108,7 +108,6 @@ var flashmill = new function(){
     var embeds = Array.prototype.slice.call(frame.document.getElementsByTagName("embed"));
     var object = Array.prototype.slice.call(frame.document.getElementsByTagName("object"));
     tags = embeds.concat(object);
-    alert(tags.length);
     
     for (var i=0;i<tags.length;i++){
       try {
