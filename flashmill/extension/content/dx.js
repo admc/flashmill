@@ -160,7 +160,7 @@ DomInspectorConnector.prototype.dxOff = function() {
 DomInspectorConnector.prototype.getFoc = function(e){
   var lowerTag = e.target.tagName.toLowerCase();
   
-  if ((lowerTag != "embed") || (lowerTag != "object")){
+  if ((lowerTag != "embed") && (lowerTag != "object")){
     alert('This does not appear to be a flash embed or object');
     document.getElementById('swf').innerHTML = "";  
     window.testMovie = null;
