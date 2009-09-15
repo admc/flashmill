@@ -105,15 +105,20 @@ var flashmill = new function(){
   this.recursiveSearch = function(frame){
     
     var tags = [];
-    var embeds = frame.document.getElementsByTagName("embed") || [];
-    var objects = frame.document.getElementsByTagName("objects") || [];
-    tags = embeds.concat(objects);
+    var embeds = Array.prototype.slice.call(frame.document.getElementsByTagName("embed"));
+    var object = Array.prototype.slice.call(frame.document.getElementsByTagName("object"));
+    tags = embeds.concat(object);
+    alert(tags.length);
     
     for (var i=0;i<tags.length;i++){
-      //check and see if the API is there for running tests
-      if (tags[i].wrappedJSObject.wm_runASTests){
-        window.testMovie = tags[i];
-        return;
+      try {
+        //check and see if the API is there for running tests
+        if (tags[i].wrappedJSObject.wm_runASTests){
+          window.testMovie = tags[i];
+          return;
+        }
+      } catch(err){
+        alert(err);
       }
      } 
       
@@ -123,8 +128,8 @@ var flashmill = new function(){
       for (var i = 0; i < iframeCount; i++){
           try {
             var tags = [];
-            var embeds = iframeArray[i].document.getElementsByTagName("embed") || [];
-            var objects = iframeArray[i].document.getElementsByTagName("objects") || [];
+            var embeds = Array.prototype.slice.call(iframeArray[i].document.getElementsByTagName("embed"));
+            var objects = Array.prototype.slice.call(iframeArray[i].document.getElementsByTagName("object"));
             tags = embeds.concat(objects);
             
             //for each embed on the page
@@ -136,7 +141,7 @@ var flashmill = new function(){
               }
             }
             this.dxRecursiveBind(iframeArray[i]);
-          } catch(error) {}
+          } catch(err) { alert(err); }
       }
   };
   
@@ -224,6 +229,7 @@ var flashmill = new function(){
     try {
       window.testMovie.wrappedJSObject['wm_runASTests'](urls);
     } catch(err){
+      alert(err);
       alert('Could not locate the test movie embed, please select it.');
       $("#tabs").tabs().tabs("select", 0);
     }
