@@ -105,8 +105,8 @@ var flashmill = new function(){
   this.recursiveSearch = function(frame){
     
     var tags = [];
-    var embeds = frame.document.getElementsByTagName("embed");
-    var objects = frame.document.getElementsByTagName("objects");
+    var embeds = frame.document.getElementsByTagName("embed") || [];
+    var objects = frame.document.getElementsByTagName("objects") || [];
     tags = embeds.concat(objects);
     
     for (var i=0;i<tags.length;i++){
@@ -123,8 +123,8 @@ var flashmill = new function(){
       for (var i = 0; i < iframeCount; i++){
           try {
             var tags = [];
-            var embeds = iframeArray[i].document.getElementsByTagName("embed");
-            var objects = iframeArray[i].document.getElementsByTagName("objects");
+            var embeds = iframeArray[i].document.getElementsByTagName("embed") || [];
+            var objects = iframeArray[i].document.getElementsByTagName("objects") || [];
             tags = embeds.concat(objects);
             
             //for each embed on the page
