@@ -228,7 +228,6 @@ var flashmill = new function(){
     try {
       window.testMovie.wrappedJSObject['wm_runASTests'](urls);
     } catch(err){
-      alert(err);
       alert('Could not locate the test movie embed, please select it.');
       $("#tabs").tabs().tabs("select", 0);
     }
