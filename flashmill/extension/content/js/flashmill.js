@@ -117,7 +117,7 @@ var flashmill = new function(){
           return;
         }
       } catch(err){
-        alert(err);
+        //alert(err);
       }
      } 
       
@@ -140,7 +140,9 @@ var flashmill = new function(){
               }
             }
             this.dxRecursiveBind(iframeArray[i]);
-          } catch(err) { alert(err); }
+          } catch(err) { 
+            //alert(err); 
+          }
       }
   };
   
